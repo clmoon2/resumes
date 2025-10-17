@@ -1,0 +1,45 @@
+name: Compile LaTeX resumes
+
+on:
+  push:
+    paths:
+      - "resumes/tex/**/*.tex"   # run when .tex files change
+  workflow_dispatch:             # allow manual run from the Actions tab
+
+permissions:
+  contents: write                # needed if you commit PDFs back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Compile all .tex files in resumes/tex with Tectonic
+      - name: Compile with Tectonic
+        uses: vinay0410/tectonic-action@v1.1.2
+        with:
+          tex_path: resumes/tex/*.tex     # <-- your .tex location
+          push: "no"                      # set "yes" only if that action auto-push suits you
+
+      # (Optional) move PDFs to a separate folder
+      - name: Collect PDFs
+        run: |
+          mkdir -p resumes/pdf
+          shopt -s nullglob
+          mv resumes/tex/*.pdf resumes/pdf/ || true
+
+      # Upload as build artifact (nice for debugging)
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes-pdf
+          path: resumes/pdf/*.pdf
+
+      # Commit PDFs back into the repo
+      - name: Commit PDFs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): add compiled PDFs"
+          file_pattern: resumes/pdf/*.pdf
