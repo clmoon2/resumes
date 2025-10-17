@@ -1,0 +1,62 @@
+name: Compile LaTeX resumes
+
+permissions:
+  contents: write
+
+on:
+  push:
+    paths:
+      - 'resumes/tex/**/*.tex'
+      - '.github/workflows/compile-resume.yml'
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install a reasonably small TeX Live with latexmk
+      - name: Install TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: >-
+            scheme-small
+            latexmk
+            texlive-latex-recommended
+            texlive-latex-extra
+            texlive-fonts-recommended
+
+      # If your template keeps \input{glyphtounicode}, make sure file exists
+      - name: Ensure glyphtounicode.tex (optional)
+        run: |
+          test -f resumes/tex/glyphtounicode.tex || \
+          curl -fsSL https://raw.githubusercontent.com/sb2nov/resume/master/glyphtounicode.tex \
+          -o resumes/tex/glyphtounicode.tex
+
+      - name: Compile all .tex to PDF
+        run: |
+          mkdir -p resumes/pdf
+          shopt -s nullglob
+          for f in resumes/tex/*.tex; do
+            echo "Compiling $f"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error \
+              -output-directory=resumes/pdf "$f"
+          done
+          ls -l resumes/pdf || true
+
+      - name: Upload PDFs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes-pdf
+          path: resumes/pdf/*.pdf
+          if-no-files-found: warn
+
+      - name: Commit PDFs back to repo
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resumes/pdf/*.pdf || true
+          git commit -m "Update compiled resumes [skip ci]" || echo "No PDF changes"
+          git push || true
