@@ -1,0 +1,186 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Carlos Luna-Pena} \\ \vspace{1pt}
+    \small 956-966-0986 $|$ \href{mailto:carlunpen@gmail.com}{\underline{carlunpen@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/carlos-luna}{\underline{linkedin.com/in/carlos-luna}} $|$
+    \href{https://github.com/clmoon2}{\underline{github.com/clmoon2}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Texas A\&M University}{College Station, TX}
+      {Bachelor of Science in Computer Science}{Aug. 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{\textbf{Relevant Coursework:} CSCE 331 (Foundations of Software Engineering), CSCE 411 (Design \& Analysis of Algorithms), CSCE 410 (Operating Systems), CSCE 420 (Artificial Intelligence), CSCE 465 (Computer \& Network Security), CSCE 313 (Intro to Computer Systems), Data Structures \& Algorithms.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+  {AI Closet — Team Lead \& ML Engineer}{Sep. 2025 -- Present}
+  {Aggies Create (Team Project)}{College Station, TX}
+  \resumeItemListStart
+    \resumeItem{Built an AI wardrobe assistant with a cross-functional \textbf{Aggies Create} team; owned ML/backend while collaborating on API/UX.}
+    \resumeItem{Implemented PyTorch CV boxing/tagging (category/color/pattern) and item embeddings; shipped a \textbf{FastAPI} REST service with a \textbf{Postgres} schema.}
+    \resumeItem{Designed the outfit recommender using weather/occasion constraints and a scoring model (color harmony, mood, novelty); iterated via user feedback.}
+    \resumeItem{Drove team practices: GitHub PR reviews, issue triage, and weekly sprints with lightweight docs for onboarding.}
+  \resumeItemListEnd
+
+
+    \resumeSubheading
+      {HECM Hackathon}{Feb. 2024}
+      {Texas A\&M Higher Education Center at McAllen}{McAllen, TX}
+      \resumeItemListStart
+        \resumeItem{Built a \textbf{Raspberry Pi} + \textbf{6-axis robotic arm} demo with gesture/face/color tracking and control loops; documented a repeatable setup.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+        {\textbf{Aggie Events} $|$ \emph{TypeScript, Next.js, React, Node.js, PostgreSQL, Docker, Google OAuth, GitHub Actions}}{Aug. 2024 -- Present}
+        \resumeItemListStart
+          \resumeItem{Shipped front-end \textbf{pages \& components} (search, event detail, org views, settings/landing) in \textbf{Next.js + Tailwind} with responsive, accessible UX.}
+          \resumeItem{\textbf{Integrated Google OAuth} across frontend/backend; configured secure cookies and \textbf{CORS}; coordinated environment variables.}
+          \resumeItem{Worked in a \textbf{monorepo} with \textbf{CI workflows} (lint, type-check, tests) and branch protections to maintain code health.}
+          \resumeItem{Extended \textbf{PostgreSQL} schema (events, orgs, likes/views); added indexes and tuned queries.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\textbf{Monee} $|$ \emph{Next.js, React, Node.js, CSV Import, Gemini API (chatbot), Framer}}{TAMUhack 2025}
+        \resumeItemListStart
+          \resumeItem{Gamified \textbf{financial literacy} app: users complete savings challenges, earn points, and redeem rewards; modern UI with \textbf{Framer} interactions.}
+          \resumeItem{Implemented \textbf{CSV transaction} parsing to track spending vs. goals; collaborated on \textbf{Gemini}-powered advice flows.}
+          \resumeItem{Partnered on API contracts and server logic; future work includes persistent accounts and a production backend.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\textbf{Studytick} $|$ \emph{Electron, React, SQLite, Electron-Builder}}{2025}
+        \resumeItemListStart
+          \resumeItem{Built a Windows desktop \textbf{Pomodoro} app with \textbf{Electron + React}; separated main/renderer via a secure \textbf{preload} bridge.}
+          \resumeItem{Implemented a \textbf{drift-safe timer} and persisted sessions to \textbf{SQLite}; added charts for streaks and session history.}
+          \resumeItem{Packaged installers with \textbf{electron-builder} and auto-update; added settings, notifications, and global hotkeys.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+        {\textbf{Homeworkify} $|$ \emph{JavaScript, Chrome Extension, Python, HTML/CSS}}{Sept. 2023}
+        \resumeItemListStart
+          \resumeItem{Chrome extension to \textbf{aggregate homework resources} with retry/backoff and a compact UI for quick lookup.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: TypeScript, Java, Python, C/C++, SQL} \\
+     \textbf{Frameworks/Libraries}{: React, Next.js, Tailwind, Electron, Node.js} \\
+     \textbf{Databases}{: PostgreSQL, SQLite} \\
+     \textbf{Tools}{: Docker, Git/GitHub, PyTorch, Linux} \\
+     \textbf{Concepts}{: Data Structures \& Algorithms, Operating Systems, OAuth, CORS/rate-limiting}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
