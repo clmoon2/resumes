@@ -1,0 +1,198 @@
+
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%-------------------------
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+%-------------------------------------------
+%%%%%% RESUME STARTS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\LARGE \textbf{Carlos Luna-Pe\~na}} \\ \vspace{2pt}
+    College Station, TX \quad $\cdot$ \quad (956) 966-0986 \quad $\cdot$ \quad \href{mailto:carlunpen@gmail.com}{carlunpen@gmail.com} \\ \vspace{2pt}
+    \href{https://linkedin.com/in/carlos-luna}{linkedin.com/in/carlos-luna} \quad $\cdot$ \quad \href{https://github.com/clmoon2}{github.com/clmoon2}
+\end{center}
+
+%----------SUMMARY----------
+\section{Professional Summary}
+\resumeSubHeadingListStart
+\resumeItem{CS student at Texas A\&M with hands-on experience delivering user-facing web applications and production systems. Skilled in JavaScript, React, HTML, CSS, and modern web frameworks. Proven collaborator in Agile teams, driving accessible UX, code reviews, and rapid iteration.}
+\resumeSubHeadingListEnd
+
+%----------EDUCATION----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Texas A\&M University}{College Station, TX}
+    {B.S. in Computer Science}{Aug. 2023 -- Present}
+\resumeItemListStart
+    \resumeItem{Relevant Coursework: Software Engineering, Algorithms, Operating Systems, Artificial Intelligence, Security, Data Structures \\ \& Algorithms}
+    \resumeItem{Writing-intensive (W) program: specs, user stories, retrospectives, demos}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%----------EXPERIENCE----------
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {AIPHRODITE (Aggies Create)}{Sep. 2025 -- Present}
+    {Team Lead \& ML Engineer}{College Station, TX}
+    \resumeItemListStart
+        \resumeItem{Led Agile team (standups, sprint planning, PR reviews, onboarding docs) building AI-powered wardrobe assistant web app.}
+        \resumeItem{Implemented computer vision tagging (category/color/pattern) and embeddings, served via FastAPI; designed PostgreSQL schema for retrieval and filtering.}
+        \resumeItem{Optimized recommender UX (weather/occasion/color harmony); improved click-through by user feedback iteration.}
+        \resumeItem{Reduced cycle time and PR rework with rigorous peer review and demo-readiness.}
+        \resumeItem{Containerized services; maintained CI pipeline (GitHub Actions) for consistent deployments.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {HECM Hackathon}{Feb. 2024}
+    {Participant}{Raspberry Pi + 6-axis Arm}
+    \resumeItemListStart
+        \resumeItem{Prototyped gesture/face/color tracking demo with real-time control loops; shared reproducible setup and documentation; demoed among peer teams.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%----------PROJECTS----------
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {Aggie Events (Next.js, React, Tailwind, Node.js, PostgreSQL, Docker, Google OAuth, GitHub Actions)}{Aug. 2024 -- Present}
+    \resumeItemListStart
+      \resumeItem{Developed responsive UI (search, event detail, org, settings/landing) with accessible, mobile-friendly UX.}
+      \resumeItem{Integrated Google OAuth on front- and backend; implemented secure cookies and CORS handling.}
+      \resumeItem{Extended PostgreSQL schema (events/orgs/likes/views); improved query performance with indexing and tuning.}
+      \resumeItem{Maintained monorepo CI for lint, type-check, and tests; enforced branch protections.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Panda Express POS (CSCE 331 Team Project 2, Agile/Scrum)}{Fall 2025}
+    \resumeItemListStart
+      \resumeItem{Built RESTful endpoints for inventory, orders, and reporting; implemented role-based access control.}
+      \resumeItem{Wrote integration tests to ensure API reliability; containerized services and deployed stable demo versions.}
+      \resumeItem{Collaborated in retrospectives and status updates to drive iteration.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Panda Express Mobile App (React Native/Expo, TypeScript)}{Fall 2025}
+    \resumeItemListStart
+      \resumeItem{Developed ordering/menu/loyalty flows; added push notifications, accessibility features, and offline handling.}
+      \resumeItem{Incorporated user study results into iterative improvements.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Personal Web (HTML/CSS/JS)}{2024}
+    \resumeItemListStart
+      \resumeItem{Created personal portfolio site with semantic HTML, responsive layout, and theme toggling; optimized Lighthouse scores.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Monee (TAMUhack 2025, Next.js, React, CSV Import, Gemini API, Framer)}{2025}
+    \resumeItemListStart
+      \resumeItem{Built gamified financial literacy app; implemented CSV parsing and chatbot advice flows; delivered polished interactions.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Studytick (Electron, React, SQLite)}{2024}
+    \resumeItemListStart
+      \resumeItem{Built Pomodoro desktop app with persisted sessions, charts, and auto-update; implemented secure preload bridge.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Aggie Shell (C/C++, Linux)}{2024}
+    \resumeItemListStart
+      \resumeItem{Implemented Unix shell with multi-stage pipelines, I/O redirection, background jobs, and robust prompt.}
+      \resumeItem{Used fork/execvp, pipes, dup2, waitpid (non-blocking), cd/chdir, and tokenizer for command parsing.}
+      \resumeItem{Prevented file descriptor leaks and ensured correct stdin restoration.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%----------TECHNICAL SKILLS----------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\resumeItem{\textbf{Languages:} JavaScript/TypeScript, Java, Python, C/C++, SQL}
+\resumeItem{\textbf{Web:} React, Next.js, Tailwind, Node.js/Express, HTML, CSS}
+\resumeItem{\textbf{Backend/DevOps:} PostgreSQL, SQLite, Docker, Git/GitHub, GitHub Actions, Linux, Bash}
+\resumeItem{\textbf{Auth/Security:} OAuth 2.0, secure cookies, CORS, RBAC}
+\resumeItem{\textbf{AI/Automation:} PyTorch, FastAPI, OpenAI API, n8n, Apify}
+\resumeItem{\textbf{Systems:} Processes, IPC, fork/execvp, pipes, dup2, waitpid, file I/O}
+\resumeItem{\textbf{Practices:} RESTful API design, input validation, accessibility (WCAG), unit/integration testing, CI/CD, Agile/Scrum}
+\resumeSubHeadingListEnd
+
+\end{document}
