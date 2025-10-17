@@ -1,0 +1,34 @@
+
+name: Compile LaTeX resumes
+on:
+  push:
+    paths:
+      - 'resumes/tex/*.tex'
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resumes/tex/*.tex
+          glob_root_file: true
+          latexmk_use_xelatex: true
+      - name: Move PDFs
+        run: |
+          mkdir -p resumes/pdf
+          shopt -s nullglob
+          for f in resumes/tex/*.pdf; do
+            base=$(basename "$f")
+            mv "$f" "resumes/pdf/$base"
+          done
+      - name: Commit PDFs
+        run: |
+          git config user.name "n8n-bot"
+          git config user.email "actions@github.com"
+          git add resumes/pdf/*.pdf || true
+          git commit -m "Add compiled PDF(s)" || true
+          git push
