@@ -1,0 +1,46 @@
+name: Compile LaTeX resumes
+
+on:
+  push:
+    paths:
+      - "resumes/tex/**/*.tex"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Compile every .tex in resumes/tex/
+      - name: Compile with latexmk
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: "*.tex"
+          working_directory: resumes/tex
+          glob_root_file: true
+          latexmk_use_lualatex: false   # set true if you need LuaLaTeX
+          latexmk_shell_escape: true    # set false if not needed
+          extra_system_packages: fontconfig
+
+      - name: Collect PDFs
+        run: |
+          mkdir -p resumes/pdf
+          shopt -s nullglob
+          mv resumes/tex/*.pdf resumes/pdf/ || true
+
+      - name: Upload PDFs (artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes-pdf
+          path: resumes/pdf/*.pdf
+
+      - name: Commit PDFs to repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): add compiled PDFs"
+          file_pattern: resumes/pdf/*.pdf
