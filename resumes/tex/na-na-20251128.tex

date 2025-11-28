@@ -1,0 +1,133 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{#1} & #2 \\
+  \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+  \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]} 
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Carlos Luna-Pe\~na} \\ \vspace{1pt}
+    956-966-0986 $|$ \href{mailto:carlunpen@gmail.com}{carlunpen@gmail.com} $|$ 
+    \href{https://linkedin.com/in/carlos-luna}{linkedin.com/in/carlos-luna} $|$
+    \href{https://github.com/clmoon2}{github.com/clmoon2} $|$
+    College Station, TX
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Texas A\&M University}{College Station, TX}
+{B.S. in Computer Science}{Aug. 2023 -- Present}
+\resumeItemListStart
+\resumeItem{Relevant Coursework: CSCE 331, CSCE 411, CSCE 410, CSCE 420, CSCE 465, CSCE 313, Data Structures \& Algorithms}
+\resumeItem{Writing-intensive (W) with specs, user stories, retrospectives, and demos.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+{AIPHRODITE (Aggies Create)}{College Station, TX}
+{Team Lead \& ML Engineer}{Sep. 2025 -- Present}
+\resumeItemListStart
+\resumeItem{Implemented computer vision tagging and embeddings, serving via FastAPI with a Postgres database for efficient retrieval.}
+\resumeItem{Designed a recommender system utilizing weather and occasion data, increasing CTR by leveraging user feedback.}
+\resumeItem{Led Agile practices including sprints, PR reviews, and onboarding documentation, achieving demo-ready stability.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{\textbf{Aggie Events} $|$ \emph{Aug. 2024 -- Present}}{}
+\resumeItemListStart
+\resumeItem{Developed responsive web interfaces with TypeScript, Next.js, and React ensuring accessible user experiences.}
+\resumeItem{Integrated Google OAuth with secure cookies and CORS handling, extending Postgres schema with performance-tuned queries to reduce p95 latency.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Panda Express POS (CSCE 331 Team Project 2)} $|$ \emph{Fall 2025}}{}
+\resumeItemListStart
+\resumeItem{Constructed API endpoints for key functionalities like inventory and reporting with role-based access control achieving high test coverage.}
+\resumeItem{Deployed services with Docker, set up CI pipelines, and ensured stable API contracts with regular retrospectives.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{\textbf{Aggie Shell (PA2)} $|$ \emph{Spring 2024}}{}
+\resumeItemListStart
+\resumeItem{Implemented advanced shell features like pipeline execution, I/O redirection, background job handling, and robust fd management.}
+\resumeItem{Passed comprehensive tests for piping, redirection, and background processes, ensuring resource-clean handling.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\resumeSubItem{\textbf{Languages:} TypeScript, Java, Python, C/C++, SQL}
+\resumeSubItem{\textbf{Frameworks/Libraries:} React, Next.js, Node.js, FastAPI, PyTorch}
+\resumeSubItem{\textbf{Databases:} PostgreSQL, SQLite}
+\resumeSubItem{\textbf{Tools/DevOps:} Docker, Git/GitHub, GitHub Actions, Linux}
+\resumeSubItem{\textbf{Concepts:} REST, OAuth, JWT, CI/CD, Testing, Agile/Scrum}
+\resumeSubHeadingListEnd
+
+\end{document}
