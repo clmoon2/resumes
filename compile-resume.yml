@@ -1,9 +1,11 @@
-
 name: Compile LaTeX resumes
+
 on:
   push:
     paths:
-      - 'resumes/tex/*.tex'
+      - "resumes/tex/**/*.tex"
+  workflow_dispatch:
+
 permissions:
   contents: write
 
@@ -11,24 +13,44 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: xu-cheng/latex-action@v3
-        with:
-          root_file: resumes/tex/*.tex
-          glob_root_file: true
-          latexmk_use_xelatex: true
-      - name: Move PDFs
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Install LaTeX
         run: |
-          mkdir -p resumes/pdf
-          shopt -s nullglob
-          for f in resumes/tex/*.pdf; do
-            base=$(basename "$f")
-            mv "$f" "resumes/pdf/$base"
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+      
+      - name: Create PDF directory
+        run: mkdir -p resumes/pdf
+      
+      - name: Compile all .tex files
+        run: |
+          cd resumes/tex
+          for texfile in *.tex; do
+            if [ -f "$texfile" ]; then
+              echo "=== Compiling $texfile ==="
+              pdflatex -interaction=nonstopmode -output-directory=../pdf "$texfile"
+              # Run twice for proper references
+              pdflatex -interaction=nonstopmode -output-directory=../pdf "$texfile"
+              echo "=== Finished $texfile ==="
+            fi
           done
-      - name: Commit PDFs
+      
+      - name: List generated PDFs
         run: |
-          git config user.name "n8n-bot"
-          git config user.email "actions@github.com"
-          git add resumes/pdf/*.pdf || true
-          git commit -m "Add compiled PDF(s)" || true
-          git push
+          echo "Contents of resumes/pdf:"
+          ls -lah resumes/pdf/
+      
+      - name: Upload PDFs (artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumes-pdf
+          path: resumes/pdf/*.pdf
+        continue-on-error: true
+      
+      - name: Commit PDFs to repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): add compiled PDFs"
+          file_pattern: "resumes/pdf/*.pdf"
