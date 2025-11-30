@@ -53,4 +53,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(ci): add compiled PDFs"
-          file_pattern: "resumes/pdf/*.pdf"
+          file_pattern: "resumes/pdf/*.pdf" 
+
