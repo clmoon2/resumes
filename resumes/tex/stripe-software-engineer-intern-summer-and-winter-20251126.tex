@@ -1,0 +1,134 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\pdfgentounicode=1
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & #2 \\
+  \end{tabular*}\vspace{-7pt}
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\begin{document}
+
+\begin{center}
+\textbf{\Large Carlos Luna-Peña} \\
+Computer Science @ Texas A\&M \\
+\href{mailto:carlunpen@gmail.com}{carlunpen@gmail.com} $|$ 
+\href{https://github.com/clmoon2}{GitHub} $|$
+\href{https://linkedin.com/in/carlos-luna}{LinkedIn} $|$ 
+College Station, TX
+\end{center}
+
+\vspace{0.1in}
+
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Texas A\&M University}{College Station, TX}
+{B.S. in Computer Science; \textbf{Major GPA}: 3.62/4.00}{Aug. 2023 -- Present}
+\resumeItemListStart
+\resumeItem{Selected Coursework: Algorithms, AI, Operating Systems, Security, Software Engineering.}
+\resumeItem{Intensive work on specs, user stories, retrospectives, and peer evaluations.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+{AIPHRODITE (Aggies Create)}{College Station, TX}
+{Technical Lead \& Full Stack / ML}{Sep. 2025 -- Present}
+\resumeItemListStart
+\resumeItem{Implemented CV tagging and embedding search with FastAPI and PostgreSQL, achieving ~80\% accuracy on 10,000+ items.}
+\resumeItem{Designed an outfit recommender; improved CTR on recommended outfits by 15\% in prototype tests.}
+\resumeItem{Led a team of 5, managing sprints and PR reviews, reducing rework by 30\%.}
+\resumeItemListEnd
+
+\resumeSubheading
+{applyeasy.tech}{Remote}
+{Founder \& Full-Stack / Automation Engineer}{2025}
+\resumeItemListStart
+\resumeItem{Developed applyeasy.tech, a SaaS automating job applications through scraping, LLM-filtering, and tailored LaTeX resume generation.}
+\resumeItem{Built a React Native app for users to manage roles, preferences, and outreach, reducing manual application time by 40\%.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{carlosOS (Educational OS)}{In Progress}
+\resumeItemListStart
+\resumeItem{Implemented bootloader and kernel entry with C/C++, establishing a cross-compilation environment with QEMU.}
+\resumeItem{Developed a process model and scheduler; added I/O and process management syscalls.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{Aggie Events}{Aug. 2024 -- Present}
+\resumeItemListStart
+\resumeItem{Built responsive UI with Next.js and React; secured Google OAuth and reduced latency by 20\% on key queries.}
+\resumeItem{Configured CI/CD for a monorepo, maintaining stable production builds.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+{LaTeX Resume Builder \& CLI/Action}{2025}
+\resumeItemListStart
+\resumeItem{Designed a JSON schema and LaTeX template for automated resume PDF generation.}
+\resumeItem{Created a Node/TypeScript CLI and GitHub Action for resume automation, enabling widespread adoption.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\small\textbf{Languages}: TypeScript, Java, Python, C/C++, SQL \\
+\small\textbf{Frameworks/Libraries}: React, Next.js, Tailwind, Node.js, FastAPI \\
+\small\textbf{Tools}: Git, GitHub, Docker, GitHub Actions, LaTeX, QEMU \\
+\small\textbf{Concepts}: REST APIs, CI/CD, AI, automation workflows, RAG systems
+
+\end{document}
