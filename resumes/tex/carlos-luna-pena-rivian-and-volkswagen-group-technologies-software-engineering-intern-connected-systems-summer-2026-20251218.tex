@@ -1,0 +1,157 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge Carlos Luna-Pe\~na} \\
+  \vspace{1pt}
+  Computer Science @ Texas A\&M \\
+  \vspace{1pt}
+  \href{mailto:carlunpen@gmail.com}{carlunpen@gmail.com} $|$
+  \href{https://github.com/clmoon2}{github.com/clmoon2} $|$
+  \href{https://linkedin.com/in/carlos-luna}{linkedin.com/in/carlos-luna} $|$
+  \href{https://applyeasy.tech}{applyeasy.tech}
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+  {Texas A\&M University}{College Station, TX}
+  {B.S. in Computer Science; Major GPA: 3.62/4.00}{Aug. 2023 -- Present}
+  \resumeItemListStart
+    \resumeItem{Relevant Coursework: Software Engineering, Operating Systems, Artificial Intelligence, Computer Security, Algorithms, Data Structures}
+    \resumeItem{Completed writing-intensive coursework with specifications, retrospectives, demos, and peer evaluations}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {AIPHRODITE (Aggies Create)}{College Station, TX}
+  {Technical Lead \& Full Stack / ML}{Sep. 2024 -- Present}
+  \resumeItemListStart
+    \resumeItem{Developed RESTful APIs using FastAPI serving CV embeddings and outfit recommendations; reduced database query latency by 40\% with optimized PostgreSQL indexes}
+    \resumeItem{Integrated OpenAI embeddings and LangChain to build a RAG-powered AI fashion advisor with 87\% tagging accuracy}
+    \resumeItem{Containerized microservices with Docker and configured CI/CD pipelines using GitHub Actions for automated testing and deployment}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {applyeasy.tech}{Remote}
+  {Founder \& Automation Engineer}{2025}
+  \resumeItemListStart
+    \resumeItem{Built job automation engine using n8n workflow automation to scrape 100+ jobs/day, filter via OpenAI API, and send tailored PDFs via Gmail API}
+    \resumeItem{Designed fault-tolerant orchestration logic with retry strategies, logging, and batch processing; reduced silent failures by 90\%}
+    \resumeItem{Integrated LaTeX resume generation and GitHub-hosted delivery system; automated outreach improved application throughput for early users}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {carlosOS — C, C++, Assembly, QEMU, GDB, Make}{2024}
+  \resumeItemListStart
+    \resumeItem{Implemented x86 OS: bootloader, kernel, system calls, and scheduler with round-robin execution and IPC via pipes and signals}
+    \resumeItem{Built Unix-style shell supporting fork/exec, I/O redirection, background jobs; tested with QEMU and GDB under real-mode constraints}
+  \resumeItemListEnd
+
+\resumeProjectHeading
+  {Aggie Events — Next.js, React, Node.js, PostgreSQL, Docker}{2024}
+  \resumeItemListStart
+    \resumeItem{Built full-stack web app for TAMU orgs: Node.js RESTful API, PostgreSQL database, responsive React frontend with Tailwind CSS}
+    \resumeItem{Reduced p95 query latency by 40\% through schema design, indexing strategies, and query optimization techniques}
+  \resumeItemListEnd
+
+\resumeProjectHeading
+  {LaTeX Resume Builder \& CLI — TypeScript, Node.js, GitHub Actions, LaTeX}{2024}
+  \resumeItemListStart
+    \resumeItem{Created JSON-to-LaTeX compiler as CLI/Action; builds ATS-optimized PDF resumes from structured input using GitHub CI/CD}
+    \resumeItem{Published GitHub Action for automated document generation; supports fully reproducible workflows}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Python, C++, TypeScript, JavaScript, C, SQL, Bash} \\
+    \textbf{Frameworks/Libraries}{: FastAPI, React.js, Next.js, Node.js, LangChain, Tailwind CSS, React Native} \\
+    \textbf{Databases}{: PostgreSQL, Redis, SQLite, Prisma ORM} \\
+    \textbf{Tools/Platforms}{: AWS, Docker, GitHub Actions, n8n, Linux, LaTeX, QEMU, GDB, OpenAI API, Hugging Face, CI/CD, Apify}
+  }}
+\end{itemize}
+
+\end{document}
